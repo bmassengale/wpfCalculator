@@ -102,6 +102,15 @@ namespace WPFcalculatorUI
 
         public void OnClick_Divide(object sender, EventArgs e)
         {
+            if (CurrentInput == "")
+            {
+                CurrentInput = "";
+                return;
+            }
+            if (previousInput != "")
+            {
+                OnClick_Compute(sender, e);
+            }
             previousInput = CurrentInput;
             CurrentInput = "";
             symbol = "/";
@@ -109,6 +118,15 @@ namespace WPFcalculatorUI
 
         public void OnClick_Multiply(object sender, EventArgs e)
         {
+            if (CurrentInput == "")
+            {
+                CurrentInput = "";
+                return;
+            }
+            if (previousInput != "")
+            {
+                OnClick_Compute(sender, e);
+            }
             previousInput = CurrentInput;
             CurrentInput = "";
             symbol = "*";
@@ -116,6 +134,15 @@ namespace WPFcalculatorUI
 
         public void OnClick_Add(object sender, EventArgs e)
         {
+            if (CurrentInput == "")
+            {
+                CurrentInput = "";
+                return;
+            }
+            if (previousInput != "")
+            {
+                OnClick_Compute(sender, e);
+            }
             previousInput = CurrentInput;
             CurrentInput = "";
             symbol = "+";
@@ -123,6 +150,15 @@ namespace WPFcalculatorUI
 
         public void OnClick_Subtract(object sender, EventArgs e)
         {
+            if(CurrentInput == "")
+            {
+                CurrentInput = "";
+                return;
+            }
+            if (previousInput != "")
+            {
+                OnClick_Compute(sender, e);
+            }
             previousInput = CurrentInput;
             CurrentInput = "";
             symbol = "-";
