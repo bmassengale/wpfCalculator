@@ -26,7 +26,7 @@
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
-        <TextBox x:Name ="currentInputTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" MinHeight="75"
+        <TextBlock x:Name ="currentInputTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" MinHeight="75"
             Background="DimGray" Foreground="WhiteSmoke" FontSize="38" FontFamily="Arial" TextAlignment="Right" 
                    Text="{Binding CurrentInput, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
 
