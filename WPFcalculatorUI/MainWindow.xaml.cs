@@ -1,101 +1,102 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace WPFcalculatorUI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private float result = 0;
-        public string CurrentInput { get; set; }
+        private string _currentInput;
+        public string CurrentInput {
+            get
+            {
+                return _currentInput;
+            }
+            set
+            {
+                _currentInput = value;
+                Notify("CurrentInput");
+            }
+        }
         private string previousInput =  "";
         private string symbol = "";
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
+        }
+
+        protected void Notify(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         public void OnClick_Decimal(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
         }
 
         public void OnClick_Zero(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
         }
 
         public void OnClick_One(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
         }
 
         public void OnClick_Two(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
         }
 
         public void OnClick_Three(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
         }
 
         public void OnClick_Four(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
-
         }
 
         public void OnClick_Five(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
         }
 
         public void OnClick_Six(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
         }
 
         public void OnClick_Seven(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
         }
 
         public void OnClick_Eight(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
+
         }
 
         public void OnClick_Nine(object sender, EventArgs e)
         {
             CurrentInput += (sender as Button).Content;
-            currentInputTextBlock.Text = CurrentInput;
         }
 
 
@@ -171,7 +172,6 @@ namespace WPFcalculatorUI
             previousInput = "";
             CurrentInput = "";
             symbol = "";
-            currentInputTextBlock.Text = CurrentInput;
         }
 
         public void OnClick_Compute(object sender, EventArgs e)
@@ -196,8 +196,6 @@ namespace WPFcalculatorUI
                     break;
             }
             CurrentInput = result.ToString();
-            currentInputTextBlock.Text = result.ToString();
-
         }
     }
 }
