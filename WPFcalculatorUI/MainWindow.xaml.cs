@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-
+using WPFcalculatorUI.Services;
 
 namespace WPFcalculatorUI
 {
@@ -26,13 +25,15 @@ namespace WPFcalculatorUI
         }
         private string previousInput =  "";
         private string symbol = "";
+        private readonly ICalculationService _calculationService;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public MainWindow()
+        public MainWindow(ICalculationService calculationService)
         {
             InitializeComponent();
             this.DataContext = this;
+            _calculationService = calculationService;
         }
 
         protected void Notify(string propertyName)
@@ -43,65 +44,12 @@ namespace WPFcalculatorUI
             }
         }
 
-        public void OnClick_Decimal(object sender, EventArgs e)
+        public void OnClick_Number(object sender, EventArgs e)
         {
-            CurrentInput += (sender as Button).Content;
+            CurrentInput += _calculationService.ReceiveInput(sender);
         }
 
-        public void OnClick_Zero(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-        }
-
-        public void OnClick_One(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-        }
-
-        public void OnClick_Two(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-        }
-
-        public void OnClick_Three(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-        }
-
-        public void OnClick_Four(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-        }
-
-        public void OnClick_Five(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-        }
-
-        public void OnClick_Six(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-        }
-
-        public void OnClick_Seven(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-        }
-
-        public void OnClick_Eight(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-
-        }
-
-        public void OnClick_Nine(object sender, EventArgs e)
-        {
-            CurrentInput += (sender as Button).Content;
-        }
-
-
-
-        public void OnClick_Divide(object sender, EventArgs e)
+        public void OnClick_Symbol(object sender, EventArgs e)
         {
             if (CurrentInput == "")
             {
@@ -114,58 +62,8 @@ namespace WPFcalculatorUI
             }
             previousInput = CurrentInput;
             CurrentInput = "";
-            symbol = "/";
+            symbol = _calculationService.ReceiveInput(sender);
         }
-
-        public void OnClick_Multiply(object sender, EventArgs e)
-        {
-            if (CurrentInput == "")
-            {
-                CurrentInput = "";
-                return;
-            }
-            if (previousInput != "")
-            {
-                OnClick_Compute(sender, e);
-            }
-            previousInput = CurrentInput;
-            CurrentInput = "";
-            symbol = "*";
-        }
-
-        public void OnClick_Add(object sender, EventArgs e)
-        {
-            if (CurrentInput == "")
-            {
-                CurrentInput = "";
-                return;
-            }
-            if (previousInput != "")
-            {
-                OnClick_Compute(sender, e);
-            }
-            previousInput = CurrentInput;
-            CurrentInput = "";
-            symbol = "+";
-        }
-
-        public void OnClick_Subtract(object sender, EventArgs e)
-        {
-            if(CurrentInput == "")
-            {
-                CurrentInput = "";
-                return;
-            }
-            if (previousInput != "")
-            {
-                OnClick_Compute(sender, e);
-            }
-            previousInput = CurrentInput;
-            CurrentInput = "";
-            symbol = "-";
-        }
-
-
 
         public void OnClick_Clear(object sender, EventArgs e)
         {
@@ -176,25 +74,7 @@ namespace WPFcalculatorUI
 
         public void OnClick_Compute(object sender, EventArgs e)
         {
-            switch(symbol)
-            {
-                case "+":
-                   result = float.Parse(previousInput) + float.Parse(CurrentInput);
-                    break;
-                case "-":
-                    result = float.Parse(previousInput) - float.Parse(CurrentInput);
-                    break;
-
-                case "/":
-                    result = float.Parse(previousInput) / float.Parse(CurrentInput);
-                    break;
-                case "*":
-                    result = float.Parse(previousInput) * float.Parse(CurrentInput);
-                    break;
-                default:
-                    result = 9999999999;
-                    break;
-            }
+            result = _calculationService.PerformCalculation(sender, float.Parse(previousInput), float.Parse(CurrentInput), symbol);
             CurrentInput = result.ToString();
         }
     }

@@ -30,25 +30,25 @@
             Background="DimGray" Foreground="WhiteSmoke" FontSize="38" FontFamily="Arial" TextAlignment="Right" 
                    Text="{Binding CurrentInput, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Button Grid.Column="1" Grid.Row="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="1" Click="OnClick_One"/>
-        <Button Grid.Column="2" Grid.Row="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="2" Click="OnClick_Two"/>
-        <Button Grid.Column="3" Grid.Row="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="3" Click="OnClick_Three"/>
-        <Button Grid.Column="4" Grid.Row="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="/" Click="OnClick_Divide"/>
+        <Button Grid.Column="1" Grid.Row="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="1" Click="OnClick_Number"/>
+        <Button Grid.Column="2" Grid.Row="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="2" Click="OnClick_Number"/>
+        <Button Grid.Column="3" Grid.Row="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="3" Click="OnClick_Number"/>
+        <Button Grid.Column="4" Grid.Row="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="/" Click="OnClick_Symbol"/>
 
-        <Button Grid.Column="1" Grid.Row="3" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="4" Click="OnClick_Four"/>
-        <Button Grid.Column="2" Grid.Row="3" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="5" Click="OnClick_Five"/>
-        <Button Grid.Column="3" Grid.Row="3" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="6" Click="OnClick_Six"/>
-        <Button Grid.Column="4" Grid.Row="3" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="*" Click="OnClick_Multiply"/>
+        <Button Grid.Column="1" Grid.Row="3" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="4" Click="OnClick_Number"/>
+        <Button Grid.Column="2" Grid.Row="3" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="5" Click="OnClick_Number"/>
+        <Button Grid.Column="3" Grid.Row="3" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="6" Click="OnClick_Number"/>
+        <Button Grid.Column="4" Grid.Row="3" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="*" Click="OnClick_Symbol"/>
 
-        <Button Grid.Column="1" Grid.Row="4" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="7" Click="OnClick_Seven"/>
-        <Button Grid.Column="2" Grid.Row="4" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="8" Click="OnClick_Eight"/>
-        <Button Grid.Column="3" Grid.Row="4" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="9" Click="OnClick_Nine"/>
-        <Button Grid.Column="4" Grid.Row="4" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="+" Click="OnClick_Add"/>
+        <Button Grid.Column="1" Grid.Row="4" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="7" Click="OnClick_Number"/>
+        <Button Grid.Column="2" Grid.Row="4" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="8" Click="OnClick_Number"/>
+        <Button Grid.Column="3" Grid.Row="4" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="9" Click="OnClick_Number"/>
+        <Button Grid.Column="4" Grid.Row="4" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="+" Click="OnClick_Symbol"/>
 
         <Button Grid.Column="1" Grid.Row="5" Background="DarkOrange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="" />
-        <Button Grid.Column="2" Grid.Row="5" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="." Click="OnClick_Decimal"/>
-        <Button Grid.Column="3" Grid.Row="5" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="0" Click="OnClick_Zero"/>
-        <Button Grid.Column="4" Grid.Row="5" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="-" Click="OnClick_Subtract"/>
+        <Button Grid.Column="2" Grid.Row="5" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="." Click="OnClick_Number"/>
+        <Button Grid.Column="3" Grid.Row="5" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="0" Click="OnClick_Number"/>
+        <Button Grid.Column="4" Grid.Row="5" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="-" Click="OnClick_Symbol"/>
 
         <Button Grid.Column="1" Grid.Row="6" Grid.ColumnSpan ="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="Clear" Click="OnClick_Clear"/>
         <Button Grid.Column="3" Grid.Row="6" Grid.ColumnSpan ="2" Background="Orange" MinHeight="45" Margin="5" Foreground="WhiteSmoke" FontSize="28" FontFamily="Arial" Content="=" Click="OnClick_Compute"/>
