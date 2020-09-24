@@ -2,7 +2,7 @@
 {
     public interface ICalculationService
     {
-        public string ReceiveInput(object sender);
-        public float PerformCalculation(object sender, float firstNum, float secondNum, string symbol);
+        public string ReceiveInput(object buttonContent);
+        public float PerformCalculation(float firstNum, float secondNum, string symbol);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using WPFcalculatorUI.Services;
 
 namespace WPFcalculatorUI
@@ -50,7 +51,7 @@ namespace WPFcalculatorUI
             {
                 CurrentInput = "";
             }
-            CurrentInput += _calculationService.ReceiveInput(sender);
+            CurrentInput += _calculationService.ReceiveInput((sender as Button).Content);
         }
 
         public void OnClick_Symbol(object sender, EventArgs e)
@@ -64,12 +65,12 @@ namespace WPFcalculatorUI
             {
                 OnClick_Compute(sender, e);
                 previousInput = result.ToString();
-                symbol = _calculationService.ReceiveInput(sender);
+                symbol = _calculationService.ReceiveInput((sender as Button).Content);
                 return;
             }
             previousInput = CurrentInput;
             CurrentInput = "";
-            symbol = _calculationService.ReceiveInput(sender);
+            symbol = _calculationService.ReceiveInput((sender as Button).Content);
         }
 
         public void OnClick_Clear(object sender, EventArgs e)
@@ -81,7 +82,7 @@ namespace WPFcalculatorUI
 
         public void OnClick_Compute(object sender, EventArgs e)
         {
-            result = _calculationService.PerformCalculation(sender, float.Parse(previousInput), float.Parse(CurrentInput), symbol);
+            result = _calculationService.PerformCalculation(float.Parse(previousInput), float.Parse(CurrentInput), symbol);
             previousInput = "";
             CurrentInput = result.ToString();
         }

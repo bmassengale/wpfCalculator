@@ -4,12 +4,12 @@ namespace WPFcalculatorUI.Services
 {
     public class CalculationService : ICalculationService
     {
-        public string ReceiveInput(object sender)
+        public string ReceiveInput(object buttonContent)
         {
-            return (string)(sender as Button).Content;
+            return buttonContent.ToString();
         }
 
-        public float PerformCalculation(object sender, float firstNum, float secondNum, string symbol)
+        public float PerformCalculation(float firstNum, float secondNum, string symbol)
         {
             switch (symbol)
             {
