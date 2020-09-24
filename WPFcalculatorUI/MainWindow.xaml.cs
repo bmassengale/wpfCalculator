@@ -46,6 +46,10 @@ namespace WPFcalculatorUI
 
         public void OnClick_Number(object sender, EventArgs e)
         {
+            if(result.ToString() == CurrentInput)
+            {
+                CurrentInput = "";
+            }
             CurrentInput += _calculationService.ReceiveInput(sender);
         }
 
@@ -59,6 +63,9 @@ namespace WPFcalculatorUI
             if (previousInput != "")
             {
                 OnClick_Compute(sender, e);
+                previousInput = result.ToString();
+                symbol = _calculationService.ReceiveInput(sender);
+                return;
             }
             previousInput = CurrentInput;
             CurrentInput = "";
@@ -75,6 +82,7 @@ namespace WPFcalculatorUI
         public void OnClick_Compute(object sender, EventArgs e)
         {
             result = _calculationService.PerformCalculation(sender, float.Parse(previousInput), float.Parse(CurrentInput), symbol);
+            previousInput = "";
             CurrentInput = result.ToString();
         }
     }
